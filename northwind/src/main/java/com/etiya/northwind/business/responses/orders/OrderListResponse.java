@@ -1,4 +1,4 @@
-package com.etiya.northwind.business.responses.products;
+package com.etiya.northwind.business.responses.orders;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,6 +17,4 @@ public class OrderListResponse {
     private String employeeLastName ;
     private String customerCompanyName ;
     private String customerContactName ;
-
-
 }

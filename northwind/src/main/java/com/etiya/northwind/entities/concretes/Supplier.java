@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -13,7 +14,7 @@ import javax.persistence.*;
 @Table(name = "suppliers")
 public class Supplier {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     @Column(name = "supplier_id")
     private int supplierId;
     @Column(name = "company_name")
@@ -22,5 +23,16 @@ public class Supplier {
     private String contactName;
     @Column(name = "contact_title")
     private String contactTitle;
+
+    @OneToMany(mappedBy = "supplier")
+    List<Product> products;
+
+    @ManyToOne
+    @JoinColumn(name = "country_id")
+    private Country country ;
+
+    @ManyToOne
+    @JoinColumn(name="city_name")
+    private  City city ;
 
 }

@@ -5,8 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import java.io.Serializable;
 
 @Entity
 @Data
@@ -14,15 +12,18 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Table(name = "order_details")
 @IdClass(OrderDetailId.class)
-public class OrderDetail implements Serializable {
+public class OrderDetail {
+
     @Id
-    @ManyToOne
-    @JoinColumn(name = "order_id")
-    private Order order;
+    private int orderId;
+
     @Id
-    @ManyToOne
-    @JoinColumn(name = "product_id")
-    private Product product;
-    @Column(name = "quantity")
-    private int quantitiy;
+    private int productId;
+
+    @Column(name="unit_price")
+    private double unitPrice;
+    @Column(name="quantity")
+    private int quantity;
+    @Column(name="discount")
+    private double discount;
 }

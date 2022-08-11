@@ -1,8 +1,12 @@
 package com.etiya.northwind.dataAccess.abstracts;
 
-import com.etiya.northwind.entities.concretes.Product;
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ProductRepository extends JpaRepository<Product,Integer> {
+import com.etiya.northwind.entities.concretes.Product;
 
+public interface ProductRepository extends JpaRepository<Product, Integer> {
+		Product findById(int id);
+		List<Product> findByCategoryCategoryId(int categoryId);
 }

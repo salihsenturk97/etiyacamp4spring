@@ -1,5 +1,4 @@
 package com.etiya.northwind.entities.concretes;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,7 +15,7 @@ import java.util.List;
 @Table(name = "orders")
 public class Order {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     @Column(name = "order_id")
     private int orderId;
     @Column(name = "order_date")
@@ -30,7 +29,5 @@ public class Order {
     @JoinColumn(name = "employee_id")
     private Employee employee;
 
-    @OneToMany(mappedBy = "order")
-    private List<OrderDetail> orderDetails;
 
 }

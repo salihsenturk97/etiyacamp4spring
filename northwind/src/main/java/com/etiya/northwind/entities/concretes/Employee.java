@@ -14,7 +14,6 @@ import java.util.List;
 @Table(name = "employees")
 public class Employee {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "employee_id")
     private int employeeId;
     @Column(name = "first_name")
@@ -23,7 +22,18 @@ public class Employee {
     private String lastName;
     @Column(name = "title")
     private String title;
+
+    @Column(name="reports_to")
+    private int reportsTo;
+
     @OneToMany(mappedBy = "employee")
     private List<Order> orders;
 
+    @ManyToOne
+    @JoinColumn(name="country_id")
+    private Country country ;
+
+    @ManyToOne
+    @JoinColumn(name="city_id")
+    private City city ;
 }

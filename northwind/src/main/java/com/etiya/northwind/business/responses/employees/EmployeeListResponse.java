@@ -1,5 +1,4 @@
-package com.etiya.northwind.business.responses.products;
-
+package com.etiya.northwind.business.responses.employees;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,5 +13,5 @@ public class EmployeeListResponse {
     private String firstName;
     private String lastName;
     private String title;
-
+    private int reportsTo;
 }

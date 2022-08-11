@@ -1,5 +1,4 @@
 package com.etiya.northwind.entities.concretes;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,7 +14,6 @@ import java.util.List;
 public class Customer {
     @Id
     @Column(name = "customer_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String customerId;
     @Column(name = "company_name")
     private String companyName;
@@ -24,4 +22,11 @@ public class Customer {
     @OneToMany(mappedBy = "customer")
     private List<Order> orders;
 
+    @ManyToOne
+    @JoinColumn(name="country_id")
+    private Country country ;
+
+    @ManyToOne
+    @JoinColumn(name="city_id")
+    private City city ;
 }
